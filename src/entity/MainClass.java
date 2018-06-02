@@ -1,8 +1,7 @@
 package entity;
 
-import Entities.Persona;
-import Integration.Field;
-import Integration.Tuple;
+import Business.PersonaManager;
+
 
 public class MainClass {
 	
@@ -12,28 +11,10 @@ public class MainClass {
 
 	public MainClass() {
 		
-		Field f_nome = new Field(),f_CF = new Field(),f_data_nasc = new Field();		
+		PersonaManager pm = new PersonaManager();
 		
-		f_CF.FieldName = "CF";
-		f_CF.Label = "Codice fiscale";
-		f_CF.Label = "CLBVTR78R03L328R";
-		
-		
-		f_nome.FieldName = "NOME";
-		f_nome.Label = "Nome di battesimo";
-		f_nome.Value = "Vittorio";
-		
-		f_data_nasc.FieldName = "DATA_NASC";
-		f_data_nasc.Label = "Data di nascita";
-		f_data_nasc.Value = "03/10/1978";
-		
-		Tuple tp = new Tuple();
-		
-		tp.Update("CF", f_CF);
-		tp.Update("NOME",f_nome);
-		tp.Update("DATA_NASC",f_data_nasc);
-		
-		Persona p = new Persona(tp);
+		pm.addPersona("CLBVTR78R03L328R", "Calabrese Vittorio", "03/10/1978");
+		pm.addPersona("LFFPRZ84L47A669E", "Loffredo Patrizia Carmela", "07/07/1984");
 		
 		System.out.println("Classe istanziata correttamente");
 		
